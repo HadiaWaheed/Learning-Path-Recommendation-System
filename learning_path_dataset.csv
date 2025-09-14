@@ -1,0 +1,21 @@
+InternID,Topic,Link,Rating
+I1,Python Basics,https://youtu.be/_uQrJ0TkZlc,4.5
+I1,Introduction to Machine Learning,https://youtu.be/GwIo3gDZCVQ,4.0
+I1,Supervised Learning Basics,https://www.coursera.org/learn/machine-learning,4.2
+I2,Decision Trees Explained,https://scikit-learn.org/stable/modules/tree.html,3.8
+I2,Random Forest Practical,https://towardsdatascience.com/random-forest-5f4a5c9a4d16,4.1
+I3,Model Evaluation Metrics,https://developers.google.com/machine-learning/crash-course/classification/accuracy,4.0
+I3,Neural Networks Basics,https://www.youtube.com/watch?v=aircAruvnKk,4.3
+I4,Deep Learning Introduction,https://www.deeplearning.ai/short-courses,4.4
+I5,Introduction to Cybersecurity,https://www.coursera.org/learn/intro-cyber-security,4.6
+I5,Networking Fundamentals,https://www.geeksforgeeks.org/computer-network-tutorials/,4.2
+I6,Web Application Security Basics,https://owasp.org/www-project-top-ten/,4.1
+I6,SQL Injection Explained,https://portswigger.net/web-security/sql-injection,4.0
+I7,Cross Site Scripting (XSS),https://owasp.org/www-community/attacks/xss/,3.9
+I7,Penetration Testing Basics,https://www.youtube.com/watch?v=3Kq1MIfTWCE,4.3
+I8,HTML & CSS Basics,https://www.w3schools.com/html/,4.5
+I8,JavaScript Fundamentals,https://javascript.info/,4.4
+I9,Responsive Web Design,https://www.freecodecamp.org/learn/responsive-web-design/,4.6
+I9,Frontend Frameworks (React),https://react.dev/,4.3
+I10,Backend with Flask,https://flask.palletsprojects.com/en/2.3.x/,4.2
+I10,Full Stack Project,https://www.youtube.com/watch?v=Z1RJmh_OqeA,4.4

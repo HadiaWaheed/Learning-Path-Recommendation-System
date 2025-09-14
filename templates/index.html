@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Learning Path Recommender</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:1000px; margin:28px auto; background:#f5f7fb; color:#222; padding:0 14px; }
+    header { background:#2b86d7; color:#fff; padding:18px; border-radius:10px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
+    .card { background:#fff; padding:18px; border-radius:10px; margin:18px 0; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .past { border-left:6px solid #27ae60; }
+    .rec { border-left:6px solid #3498db; }
+    .link { color:#2b86d7; text-decoration:none; font-weight:600; }
+    .meta { color:#666; font-size:13px; }
+    .step { color:#888; font-size:13px; margin-bottom:6px; }
+    input[type="text"]{ padding:10px; font-size:15px; width:220px; border-radius:6px; border:1px solid #ddd; }
+    button{ padding:10px 12px; border-radius:6px; background:#2b86d7; color:white; border:none; margin-left:8px; cursor:pointer; }
+    .error{ color:#c0392b; text-align:center; }
+    @media(max-width:700px){ header h1{font-size:18px} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Learning Path Recommender</h1>
+    <div style="margin-top:6px; font-size:14px;">Enter Intern ID to see Past Learning & Next Recommended Path</div>
+  </header>
+
+  <div class="card">
+    <form method="POST">
+      <label><strong>Intern ID</strong></label><br/><br/>
+      <input name="intern_id" placeholder="e.g., I1" value="{{ intern_id }}" required />
+      <button type="submit">Get Path</button>
+    </form>
+  </div>
+
+  {% if error_message %}
+    <div class="card error">{{ error_message }}</div>
+  {% endif %}
+
+  {% if past_topics %}
+  <div class="card past">
+    <h2 style="margin:0 0 8px 0;">✅ Past Topics (Completed)</h2>
+    <div class="grid">
+      {% for p in past_topics %}
+        <div>
+          <strong>{{ p.topic }}</strong><br/>
+          <div class="meta">Rating: <span style="color:#e67e22">{{ p.rating }}</span>
+            {% if p.category %} • {{ p.category }}{% endif %}
+            {% if p.difficulty %} • {{ p.difficulty }}{% endif %}
+          </div>
+          <div style="margin-top:8px;">
+            {% if p.link %}<a class="link" href="{{ p.link }}" target="_blank">Open resource</a>{% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if recommendations %}
+  <div class="card rec">
+    <h2 style="margin:0 0 8px 0;">🎯 Recommended Next Path</h2>
+    <ol>
+      {% for r in recommendations %}
+        <li style="margin:12px 0;">
+          <div class="step">Step {{ r.step }} — predicted rating: {{ r.predicted_rating }}</div>
+          <strong>{{ r.topic }}</strong>
+          {% if r.category %} <small class="meta">({{ r.category }})</small> {% endif %}
+          <div style="margin-top:6px;">
+            {% if r.link %}<a class="link" href="{{ r.link }}" target="_blank">Open resource</a>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+</body>
+</html>
