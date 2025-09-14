@@ -130,4 +130,3 @@ This project is licensed under the **MIT License**.
 ## 👩‍💻 Author
 
 **Hadia Waheed**
-🔗 GitHub: [HadiaWaheed](https://github.com/HadiaWaheed)
